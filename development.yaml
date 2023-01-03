@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: node-server-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: node-app
+    spec:     # pod spec                  
+      containers: 
+      - name: node-server 
+        image: registry.gitlab.com/web-sale/node-server:master
+        ports:
+        - containerPort: 3000
